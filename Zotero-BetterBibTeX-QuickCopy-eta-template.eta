@@ -1,0 +1,21 @@
+<% it.items.forEach(function(item) { 
+const [ , kind, lib, key ] = item.uri.match(/^https?:\/\/zotero\.org\/(users|groups)\/((?:local\/)?[^/]+)\/items\/(.+)/)
+const select = (kind === 'users') ? `zotero://select/library/items/${key}` : `zotero://select/groups/${lib}/items/${key}`
+%>- ### <%= item.title %>
+<% if (item.creators.length > 0){%>
+<%= "\ncreators::" %> <% for (var i = 0; i < item.creators.length; i++) { %>
+<%= item.creators[i].creatorType %><%= ": " %>
+<% if (item.creators[i].name){%>
+<%= item.creators[i].name %>
+<% } else { %>
+<%= item.creators[i].firstName %> <%= item.creators[i].lastName %>
+<% } %>
+<% if (i < item.creators.length -1){%>, <%}%>
+<%}%><%}%>
+<% if (item.url){%><%= "\nurl::" %> <%= item.url %><%}%>
+<% if (item.tags.length > 0){%>
+<%= "\ntags::" %> <% for (var i = 0; i < item.tags.length; i++) { %>
+<%= "#[[" %><%= item.tags[i].tag %><%= "]]" %>
+<% if (i < item.tags.length -1){%>, <%}%>
+<%}%><%}%>
+<%= "\nzotero::" %> [@<%= item.citationKey %>](<%= select %>)<%= "\r" %><% }) %>
