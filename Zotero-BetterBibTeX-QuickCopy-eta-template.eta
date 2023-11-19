@@ -18,7 +18,7 @@ const select = (kind === 'users') ? `zotero://select/library/items/${key}` : `zo
 <%= "#[[" %><%= item.tags[i].tag %><%= "]]" %>
 <% if (i < item.tags.length -1){%>, <%}%>
 <%}%><%}%>
-<%= "\nzotero::" %> [@<%= item.citationKey %>](<%= select %>)<%= "\r" %>
+<%= "\nzotero::" %> [@<%= item.citationKey %>](<%= select %>)
 <%= "\n  - #### abstractNote"%>
-<%= "\n    "%><%= item.abstractNote %>
+<%= "\n    "%><%= item.abstractNote %><%= "\r" %>
 <% }) %>
