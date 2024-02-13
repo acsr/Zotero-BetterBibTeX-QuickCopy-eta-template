@@ -24,12 +24,12 @@
 <%= "\n" %>tags:: <% item.tags.forEach((tag, i) => { %>#[[<%= tag.tag %>]]<% if (i < item.tags.length - 1){%>, <%}%><% }) %>
 <%- } -%>
 
-<%- if (item.citationKey.length) { -%>
+<%- if (item.citationKey) { -%>
 <%= "\n" %>zotero:: [@<%= item.citationKey %>](<%= select %>)
 <%- } -%>
 <%= "\n" %>
 
-<%- if (item.abstractNote.length) { -%>
+<%- if (item.abstractNote) { -%>
 <%= "\r" %>  - #### abstractNote
 <%= "\r" %>    <%= item.abstractNote %>
 <%- } -%>
