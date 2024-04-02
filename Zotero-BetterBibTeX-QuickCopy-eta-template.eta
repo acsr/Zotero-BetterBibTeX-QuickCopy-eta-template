@@ -25,13 +25,13 @@
 <%- } -%>
 
 <%- if (item.citationKey) { -%>
-<%= "\n" %>zotero:: [@<%= item.citationKey %>](<%= select %>)
+<%= "\n" %>zotero:: [@<%=item.citationKey %>](<%= select %>)
 <%- } -%>
 <%= "\n" %>
 
 <%- if (item.abstractNote) { -%>
 <%= "\r" %>  - #### abstractNote
-<%= "\r" %>    <%= item.abstractNote %>
+<%= "\r" %>    <%=item.abstractNote %>
 <%- } -%>
 
 <%- if (item.notes.length) { -%>
