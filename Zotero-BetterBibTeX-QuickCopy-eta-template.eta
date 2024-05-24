@@ -44,6 +44,7 @@
 
 <%- if (relations.length) { -%>
 <%= "\r" %>  - #### Relations
+<%="\r"%>   collapsed:: true
 <%- for (const rel of relations) { -%>
 <%= "\r" %>    - <%= rel %>
 <%- } -%>
